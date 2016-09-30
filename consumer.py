@@ -8,7 +8,7 @@ consumer = KafkaConsumer('my-topic',
                          group_id='my_group',
                          bootstrap_servers=['localhost:9092'])
 
-schema_path="user.avsc"
+schema_path = "user.avsc"
 schema = avro.schema.parse(open(schema_path).read())
 
 for msg in consumer:
@@ -17,4 +17,3 @@ for msg in consumer:
     reader = avro.io.DatumReader(schema)
     user1 = reader.read(decoder)
     print user1
-	
